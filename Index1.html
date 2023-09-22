@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border-radius: 5px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #333;
+            color: white;
+        }
+        td {
+            background-color: #f2f2f2;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #555;
+        }
+
+</style>
+<body>
+    <div>
+    <form id = "userDataForm">
+        <label for = "User_Name">User_Name :</label></br>
+      <input id = "name" type = "text" name = "name" required><br><br>
+      <label for = "Age">User_Age :</label>
+      <input id ="age" type ="number" name = "name" required><br><br>
+      <button  id ="submit" >Sumbit</button>
+    </form>
+    <button id="retrieveData">Retrieve and Display Data</button>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+    </thead>  
+    <tbody id = "userDataTable">
+</tbody>
+</table>
+</div>
+</body>
+<script src="/Index1.js" ></script>
+</html>

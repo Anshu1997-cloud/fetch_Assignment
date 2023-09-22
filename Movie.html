@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie</title>
+</head>
+<body>
+    <h1>OMDB MOVIES</h1>
+    <input type="text" id="movieSearch" />
+    <!-- <button onclick="getData()">Search</button> -->
+    <div id="container"></div>
+    <!-- <script src="index.js"></script> -->
+</body>
+<script>
+       let OMDb_API_Key = "4f4b140a"
+ let rootElement = document.getElementById("container")
+ 
+ 
+     
+    fetch(`http://www.omdbapi.com/?apikey=4f4b140a&s=matrix`)
+    .then(function (response){
+        return response.json()
+    })
+    .then(function (movieList){
+        let movies = movieList.Search
+        displayData(movies)
+    })
+    .catch(function (error){
+        console.log("Error founded")
+    })
+
+    function displayData(data){
+        data.forEach(function(movies){
+            
+            let movieCard = document.createElement("div");
+
+let movieImageElement = document.createElement("img");
+movieImage.src = movies.Poster
+
+let movieNameElement = document.createElement("p");
+movieName.textContent = movies.Title
+
+movieCard.append(movieImageElement, movieNameElement)
+rootElement.append(movieCard)
+        })
+
+    }
+
+</script>
+</html>

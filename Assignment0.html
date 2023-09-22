@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id ="root"></div>
+</body>
+<script>
+    let rootElement = document.getElementById("root");
+
+    fetch('https://reqres.in/api/users')
+
+    .then(function(response){
+
+        return response.json()
+    })
+    .then(function(DataList){
+        let Data = DataList.data
+        displayData(Data)
+    })
+    .catch(function(error){
+        console.log("Error was found")
+    })
+
+    function displayData(data){
+        // console.log(data)
+        data.forEach(function(data){
+
+            let DataCardElement = document.createElement("div")
+
+            let DataImageElement  = document.createElement("img");
+            DataImageElement.textContent = data.avatar
+
+            let DataIdElement = document.createElement("p");
+            DataIdElement.textContent = data.DataIdElement
+
+            let DataNameElement = document.createElement("p");
+            DataNameElement.textContent = data.first_name + data.last_name
+
+            let DataMailElement = document.createElement("p")
+            DataMailElement.textContent = data.email
+
+            DataCardElement.append(DataIdElement, DataMailElement, DataNameElement, DataImageElement)
+            rootElement.append(DataCardEleme)
+        })
+    }
+</script>
+</html>
