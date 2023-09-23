@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h1{
+        color:crimson;
+        background-color: chartreuse;
+        text-decoration: dotted;
+    }
+    #movieData{
+        background-color:cadetblue;
+        border-color: brown;
+    }
+    #searchButton{
+        border-radius: 10px;
+        
+    }
+    button:hover{
+        background-color:cadetblue;
+        width : 10em;
+        height : 5ex;
+        border: 2px solid firebrick;
+        font-weight: bold;
+       color: black;
+        cursor: pointer;
+    }
+    #searchInput{
+        width : 20%;
+        height : 25%;
+    }
+</style>
+<body>
+    <h1>OMDB-MOVIE-APP</h1>
+    <input type="text" id="searchInput" placeholder="Enter a movie title">
+    <button id="searchButton">Search</button>
+    <div id="movieData"></div>
+</body>
+<script src="/Assignment3.js"></script>
+</html>
