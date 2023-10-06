@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color:rgb(255, 152, 132)
+}
+
+ .container{
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #fff
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: aqua;
+    transition: 0.5s;
+}
+hover:button{
+    background-color: burlywood;
+    color: aqua;
+} 
+</style>
+<body>
+    <h1>Counter:</h1>
+    <div class = "container">
+  <p id="count">0</p>
+  <button id="startStop">Start</button>
+  <button id="increment">Increment</button>
+  <button id="decrement">Decrement</button> 
+</div>
+</body>
+<script>
+class Counter {
+      constructor() {
+
+        this.count = 0;
+        this.intervalId = null;
+        this.isAuto = false;
+
+        // Catching they Element//
+        this.startStopButton = document.getElementById('startStop');
+        this.incrementButton = document.getElementById('increment');
+        this.decrementButton = document.getElementById('decrement');
+        this.countDisplay = document.getElementById('count');
+
+        // Adding Event Listener in Button//
+
+        this.startStopButton.addEventListener('click', this.toggleAuto.bind(this));
+        this.incrementButton.addEventListener('click', this.increment.bind(this));
+        this.decrementButton.addEventListener('click', this.decrement.bind(this));
+      }
+//  adding object method//
+
+      toggleAuto() {
+        if (this.isAuto) {
+          clearInterval(this.intervalId);
+          this.startStopButton.textContent = 'Start';
+        } else {
+          this.intervalId = setInterval(this.increment.bind(this), 1000);
+          this.startStopButton.textContent = 'Stop';
+        }
+        this.isAuto = !this.isAuto;
+      }
+
+      increment() {
+        if (!this.isAuto) {
+          clearInterval(this.intervalId);
+          this.isAuto = true;
+          this.startStopButton.textContent = 'Start';
+        }
+        this.count++;
+        this.updateCountDisplay();
+      }
+
+      decrement() {
+        if (!this.isAuto) {
+          clearInterval(this.intervalId);
+          this.isAuto = true;
+          this.startStopButton.textContent = 'Start';
+        }
+        this.count--;
+        this.updateCountDisplay();
+      }
+
+      updateCountDisplay() {
+        this.countDisplay.textContent = this.count;
+      }
+    }
+
+    const counter = new Counter();
+  </script>
+</html>
